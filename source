@@ -27,22 +27,6 @@ local OrionLib = {
 	SaveCfg = false
 }
 
--- Create a small icon for Discord
-local discordIcon = Instance.new("ImageButton")
-discordIcon.Name = "DiscordIcon"
-discordIcon.Size = UDim2.new(0, 20, 0, 20)
-discordIcon.Position = UDim2.new(0, 10, 0, 10)
-discordIcon.Image = "https://cdn.iconscout.com/icon/free/png-512/free-discord-3215389-2673807.png" -- Replace with the URL of your icon image
-discordIcon.Parent = script.Parent
-
--- Add a function to copy the Discord link when the image is clicked
-discordIcon.MouseButton1Click:Connect(function()
-    -- Replace "INSERT_DISCORD_LINK_HERE" with your Discord invite link
-    local discordLink = "https://discord.com/gg.FJxrnAcawn"
-    local clipboard = game:GetService("Clipboard")
-    clipboard:SetText(discordLink)
-end)
-
 --Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
 local Icons = {}
 
@@ -1727,51 +1711,44 @@ function OrionLib:MakeWindow(WindowConfig)
 		return ElementFunction   
 	end  
 	
-	--if writefile and isfile then
-	--	if not isfile("NewLibraryNotification1.txt") then
-	--		local http_req = (syn and syn.request) or (http and http.request) or http_request
-	--		if http_req then
-	--			http_req({
-	--				Url = 'http://127.0.0.1:6463/rpc?v=1',
-	--				Method = 'POST',
-	--				Headers = {
-	--					['Content-Type'] = 'application/json',
-	--					Origin = 'https://discord.com'
-	--				},
-	--				Body = HttpService:JSONEncode({
-	--					cmd = 'INVITE_BROWSER',
-	--					nonce = HttpService:GenerateGUID(false),
-	--					args = {code = 'sirius'}
-	--				})
-	--			})
-	--		end
-	--		OrionLib:MakeNotification({
-	--			Name = "UI Library Available",
-	--			Content = "New UI Library Available - Joining Discord (#announcements)",
-	--			Time = 8
-	--		})
-	--		spawn(function()
-	--			local UI = game:GetObjects("rbxassetid://11403719739")[1]
+	function OrionLib:credit(options)
+	options = self:set_defaults({
+		Name = "Creditor",
+		Description = nil
+	}, options)
+	options.shlexware = options.shlexware or options.shlex
 
-	--			if gethui then
-	--				UI.Parent = gethui()
-	--			elseif syn.protect_gui then
-	--				syn.protect_gui(UI)
-	--				UI.Parent = game.CoreGui
-	--			else
-	--				UI.Parent = game.CoreGui
-	--			end
+	local creditContainer = (self.creditsContainer or self.container):object("Frame", {
+		Theme = {BackgroundColor3 = "Secondary"},
+		Size = UDim2.new(1, -20, 0, 52)
+	}):round(7)
 
-	--			wait(11)
+	local name = creditContainer:object("TextLabel", {
+		BackgroundTransparency = 1,
+		Position = UDim2.fromOffset(10, (options.Description and 5) or 0),
+		Size = (options.Description and UDim2.new(0.5, -10, 0, 22)) or UDim2.new(0.5, -10, 1, 0),
+		Text = options.Name,
+		TextSize = 22,
+		Theme = {TextColor3 = "StrongText"},
+		TextXAlignment = Enum.TextXAlignment.Left
+	})
 
-	--			UI:Destroy()
-	--		end)
-	--		writefile("NewLibraryNotification1.txt","The value for the notification having been sent to you.")
-	--	end
-	--end
+	if options.Description then
+		local description = creditContainer:object("TextLabel", {
+			BackgroundTransparency = 1,
+			Position = UDim2.fromOffset(10, 27),
+			Size = UDim2.new(0.5, -10, 0, 20),
+			Text = options.Description,
+			TextSize = 18,
+			Theme = {TextColor3 = "WeakText"},
+			TextXAlignment = Enum.TextXAlignment.Left
+		})
+	end
+	
 	
 
-	
+	if setclipboard then
+
 	return TabFunction
 end   
 
