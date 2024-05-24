@@ -27,6 +27,22 @@ local OrionLib = {
 	SaveCfg = false
 }
 
+-- Create a small icon for Discord
+local discordIcon = Instance.new("ImageLabel")
+discordIcon.Name = "DiscordIcon"
+discordIcon.Size = UDim2.new(0, 20, 0, 20)
+discordIcon.Position = UDim2.new(0, 10, 0, 10)
+discordIcon.Image = "https://cdn.iconscout.com/icon/free/png-512/free-discord-3215389-2673807.png" -- Replace with the URL of your icon image
+discordIcon.Parent = script.Parent
+
+-- Add a function to copy the Discord link when the image is clicked
+discordIcon.MouseButton1Click:Connect(function()
+    -- Replace "INSERT_DISCORD_LINK_HERE" with your Discord invite link
+    local discordLink = "https://discord.com/gg.FJxrnAcawn"
+    local clipboard = game:GetService("Clipboard")
+    clipboard:SetText(discordLink)
+end)
+
 --Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
 local Icons = {}
 
