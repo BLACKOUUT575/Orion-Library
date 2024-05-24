@@ -28,7 +28,7 @@ local OrionLib = {
 }
 
 -- Create a small icon for Discord
-local discordIcon = Instance.new("ImageLabel")
+local discordIcon = Instance.new("ImageButton")
 discordIcon.Name = "DiscordIcon"
 discordIcon.Size = UDim2.new(0, 20, 0, 20)
 discordIcon.Position = UDim2.new(0, 10, 0, 10)
