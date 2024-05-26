@@ -651,7 +651,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	-- Set properties
 	Icon.Name = "Icon"
 	Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
-	Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
+	Icon.Position = UDim2.new(0, 10, 0, 5) -- Change the position as needed
 	Icon.BackgroundTransparency = 1 -- Make the background transparent
 	Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
 
