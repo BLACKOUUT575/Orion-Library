@@ -597,7 +597,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		Size = UDim2.new(0, 50, 0, 50),
 		Position = UDim2.new(0, 45, 0, -24),
 		BackgroundTransparency = 1
-	}), "Text")
+	}),"image")
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
 		Size = UDim2.new(1, 0, 0, 1),
