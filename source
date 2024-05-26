@@ -645,6 +645,21 @@ function OrionLib:MakeWindow(WindowConfig)
 		WindowIcon.Parent = MainWindow.TopBar
 	end	
 
+	-- Create an ImageLabel instance
+local Icon = Instance.new("ImageLabel")
+
+-- Set properties
+Icon.Name = "Icon"
+Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
+Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
+Icon.BackgroundTransparency = 1 -- Make the background transparent
+Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
+
+-- Parent the icon to the Orion GUI
+Icon.Parent = Orion
+
+
+
 	MakeDraggable(DragPoint, MainWindow)
 
 	AddConnection(CloseBtn.MouseButton1Up, function()
@@ -1722,3 +1737,4 @@ function OrionLib:Destroy()
 end
 
 return OrionLib
+
