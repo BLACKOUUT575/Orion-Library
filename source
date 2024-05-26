@@ -596,16 +596,15 @@ function OrionLib:MakeWindow(WindowConfig)
 -- Create an ImageLabel instance
 local Icon = Instance.new("ImageLabel")
 
-
 -- Set properties
 Icon.Name = "Icon"
 Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
-Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
+Icon.Position = UDim2.new(1, -60, 0, 0) -- Change the position as needed
 Icon.BackgroundTransparency = 1 -- Make the background transparent
 Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
 
--- Parent the icon to the Orion GUI
-WindowIcon.Parent = MainWindow.TopBar 
+-- Parent the icon to the top bar
+Icon.Parent = WindowTopBar
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
 		Size = UDim2.new(1, 0, 0, 1),
