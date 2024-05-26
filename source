@@ -604,7 +604,7 @@ Icon.BackgroundTransparency = 1 -- Make the background transparent
 Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
 
 -- Parent the icon to the top bar
-Icon.Parent = WindowTopBar
+Icon.Parent = MainWindow.TopBar
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
 		Size = UDim2.new(1, 0, 0, 1),
