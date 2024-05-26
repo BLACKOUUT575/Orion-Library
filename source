@@ -655,6 +655,15 @@ Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
 Icon.BackgroundTransparency = 1 -- Make the background transparent
 Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
 
+-- Add connection function
+Icon.MouseButton1Click:Connect(function()
+	local DiscordTag = "YourDiscordTag#1234" -- Replace with your Discord tag
+	local Clipboard = game:GetService("Clipboard")
+	Clipboard:Set(DiscordTag)
+	print("Discord tag copied to clipboard: " .. DiscordTag)
+	-- You can also display a message to the user using a GUI or a notification system
+end)
+
 -- Parent the icon to the Orion GUI
 Icon.Parent = Orion
 
