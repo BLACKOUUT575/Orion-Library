@@ -525,6 +525,29 @@ function OrionLib:MakeWindow(WindowConfig)
 		}), "Text")
 	})
 
+	Sure, we can add an icon to the top of the GUI using an `ImageLabel` instance. Here's how you can do it:
+
+		```lua
+		-- Create an ImageLabel instance
+		local Icon = Instance.new("ImageLabel")
+		
+		-- Set properties
+		Icon.Name = "Icon"
+		Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
+		Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
+		Icon.BackgroundTransparency = 1 -- Make the background transparent
+		Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
+		
+		-- Parent the icon to the Orion GUI
+		Icon.Parent = Orion
+		```
+		
+		Replace `"rbxassetid://your_asset_id"` with the asset id of your icon. The asset id can be found in the URL of the asset page on the Roblox website. For example, if the URL of the asset page is `https://www.roblox.com/library/123456789/MyIcon`, then the asset id is `123456789`.
+		
+		The `Size` property determines the size of the icon, and the `Position` property determines the position of the icon. The `BackgroundTransparency` property is set to `1` to make the background of the icon transparent.
+		
+		The `Parent` property is used to add the icon to the Orion GUI. The icon will appear in the Orion GUI at the specified position and size.
+
 	local DragPoint = SetProps(MakeElement("TFrame"), {
 		Size = UDim2.new(1, 0, 0, 50)
 	})
@@ -575,14 +598,14 @@ function OrionLib:MakeWindow(WindowConfig)
 				MakeElement("Corner", 1)
 			}),
 			AddThemeObject(SetProps(MakeElement("Label", LocalPlayer.DisplayName, WindowConfig.HidePremium and 14 or 13), {
-				Size = UDim2.new(0, -60, 0, 13),
+				Size = UDim2.new(1, -60, 0, 13),
 				Position = WindowConfig.HidePremium and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
 				Font = Enum.Font.GothamBold,
 				ClipsDescendants = true
 			}), "Text"),
 			AddThemeObject(SetProps(MakeElement("Label", "", 12), {
 				Size = UDim2.new(1, -60, 0, 12),
-				Position = UDim2.new(1, 60, 1, -25),
+				Position = UDim2.new(0, 50, 1, -25),
 				Visible = not WindowConfig.HidePremium
 			}), "TextDark")
 		}),
@@ -590,9 +613,9 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local WindowName = AddThemeObject(SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		Size = UDim2.new(1, -30, 2, 0),
-		Position = UDim2.new(0, 55, 0, -24),
+		Position = UDim2.new(0, 25, 0, -24),
 		Font = Enum.Font.GothamBlack,
-		TextSize = 14
+		TextSize = 20
 	}), "Text")
 
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
@@ -644,21 +667,6 @@ function OrionLib:MakeWindow(WindowConfig)
 		})
 		WindowIcon.Parent = MainWindow.TopBar
 	end	
-
-	-- Create an ImageLabel instance
-	local Icon = Instance.new("ImageLabel")
-
-	-- Set properties
-	Icon.Name = "Icon"
-	Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
-	Icon.Position = UDim2.new(0, 10, 0, 5) -- Change the position as needed
-	Icon.BackgroundTransparency = 1 -- Make the background transparent
-	Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
-
-	-- Parent the icon to the Orion GUI's top bar
-	Icon.Parent = MainWindow.TopBar
-
-
 
 	MakeDraggable(DragPoint, MainWindow)
 
@@ -1726,9 +1734,6 @@ function OrionLib:MakeWindow(WindowConfig)
 		return ElementFunction   
 	end  
 	
-	
-
-	
 	return TabFunction
 end   
 
@@ -1737,4 +1742,3 @@ function OrionLib:Destroy()
 end
 
 return OrionLib
-
