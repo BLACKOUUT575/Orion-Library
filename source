@@ -1,3 +1,5 @@
+
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -588,7 +590,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local WindowName = AddThemeObject(SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		Size = UDim2.new(1, -30, 2, 0),
-		Position = UDim2.new(0, 52, 0, -24),
+		Position = UDim2.new(0, 25, 0, -24),
 		Font = Enum.Font.GothamBlack,
 		TextSize = 20
 	}), "Text")
@@ -634,19 +636,6 @@ function OrionLib:MakeWindow(WindowConfig)
 		WindowStuff
 	}), "Main")
 
-	-- Create an ImageLabel instance
-	local Icon = Instance.new("ImageLabel")
-	
-	-- Set properties
-	Icon.Name = "Icon"
-	Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
-	Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
-	Icon.BackgroundTransparency = 1 -- Make the background transparent
-	Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
-	
-	-- Parent the icon to the MainWindow top bar
-	Icon.Parent = MainWindow.DragPoint
-
 	if WindowConfig.ShowIcon then
 		WindowName.Position = UDim2.new(0, 50, 0, -24)
 		local WindowIcon = SetProps(MakeElement("Image", WindowConfig.Icon), {
@@ -655,6 +644,21 @@ function OrionLib:MakeWindow(WindowConfig)
 		})
 		WindowIcon.Parent = MainWindow.TopBar
 	end	
+
+	-- Create an ImageLabel instance
+	local Icon = Instance.new("ImageLabel")
+
+	-- Set properties
+	Icon.Name = "Icon"
+	Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
+	Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
+	Icon.BackgroundTransparency = 1 -- Make the background transparent
+	Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
+
+	-- Parent the icon to the Orion GUI's top bar
+	Icon.Parent = MainWindow.TopBar
+
+
 
 	MakeDraggable(DragPoint, MainWindow)
 
@@ -1722,48 +1726,6 @@ function OrionLib:MakeWindow(WindowConfig)
 		return ElementFunction   
 	end  
 	
-	--if writefile and isfile then
-	--	if not isfile("NewLibraryNotification1.txt") then
-	--		local http_req = (syn and syn.request) or (http and http.request) or http_request
-	--		if http_req then
-	--			http_req({
-	--				Url = 'http://127.0.0.1:6463/rpc?v=1',
-	--				Method = 'POST',
-	--				Headers = {
-	--					['Content-Type'] = 'application/json',
-	--					Origin = 'https://discord.com'
-	--				},
-	--				Body = HttpService:JSONEncode({
-	--					cmd = 'INVITE_BROWSER',
-	--					nonce = HttpService:GenerateGUID(false),
-	--					args = {code = 'sirius'}
-	--				})
-	--			})
-	--		end
-	--		OrionLib:MakeNotification({
-	--			Name = "UI Library Available",
-	--			Content = "New UI Library Available - Joining Discord (#announcements)",
-	--			Time = 8
-	--		})
-	--		spawn(function()
-	--			local UI = game:GetObjects("rbxassetid://11403719739")[1]
-
-	--			if gethui then
-	--				UI.Parent = gethui()
-	--			elseif syn.protect_gui then
-	--				syn.protect_gui(UI)
-	--				UI.Parent = game.CoreGui
-	--			else
-	--				UI.Parent = game.CoreGui
-	--			end
-
-	--			wait(11)
-
-	--			UI:Destroy()
-	--		end)
-	--		writefile("NewLibraryNotification1.txt","The value for the notification having been sent to you.")
-	--	end
-	--end
 	
 
 	
@@ -1775,3 +1737,4 @@ function OrionLib:Destroy()
 end
 
 return OrionLib
+
