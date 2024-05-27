@@ -590,7 +590,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local WindowName = AddThemeObject(SetProps(MakeElement("Label", WindowConfig.Name, 14), {
 		Size = UDim2.new(1, -30, 2, 0),
-		Position = UDim2.new(0, 55, 0, -24),
+		Position = UDim2.new(0, 59, 0, -20),
 		Font = Enum.Font.GothamBlack,
 		TextSize = 18
 	}), "Text")
@@ -650,7 +650,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	-- Set properties
 	Icon.Name = "Icon"
-	Icon.Size = UDim2.new(0, 50, 0, 50) -- Change the size as needed
+	Icon.Size = UDim2.new(0, 40, 0, 40) -- Change the size as needed
 	Icon.Position = UDim2.new(0, 10, 0, 10) -- Change the position as needed
 	Icon.BackgroundTransparency = 3 -- Make the background transparent
 	Icon.Image = "rbxassetid://15210431644" -- Replace with your asset id
